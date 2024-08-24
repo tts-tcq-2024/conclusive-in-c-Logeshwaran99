@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "breach_type.h"
+#include "infer_breach.h"
 #include "breach_type.h"
 #include "typewise-alert.h"
 
