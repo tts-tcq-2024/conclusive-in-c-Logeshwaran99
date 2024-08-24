@@ -28,6 +28,7 @@ add_executable(
   cooling_limits_test.cpp
   breach_classifier_test.cpp
   alert_handler_main_test.cpp
+  alert_to_controller_test.cpp
 )
 target_link_libraries(
   cleancode
