@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "typewise-alert.h"
+#include "breach_type.h"
 
 TEST(TypeWiseAlertTestSuite, InferBreachEdgeCases) {
     // Test exact limits
