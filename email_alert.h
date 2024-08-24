@@ -1,4 +1,4 @@
 #pragma once
-#include "typewise-alert.h"
+#include "cooling_type.h"
 
 void sendToEmail(BreachType breachType);
