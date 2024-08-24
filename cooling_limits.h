@@ -1,5 +1,5 @@
 #pragma once
-#include "typewise-alert.h"
+#include "cooling_type.h"
 
 #define LOWER_LIMIT_PASSIVE_COOLING 0
 #define UPPER_LIMIT_PASSIVE_COOLING 35
