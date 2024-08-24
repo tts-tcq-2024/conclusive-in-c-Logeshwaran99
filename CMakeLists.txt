@@ -23,7 +23,8 @@ add_executable(
   breach_classifier.cpp
   cooling_limits.cpp
   email_alert.cpp
-  infer_breach.cpp 
+  infer_breach.cpp
+  infer_breach_test.cpp
 )
 target_link_libraries(
   cleancode
