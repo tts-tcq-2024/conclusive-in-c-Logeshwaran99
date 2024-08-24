@@ -18,8 +18,12 @@ enable_testing()
 add_compile_options("--coverage")
 add_executable(
   cleancode
-  typewise-alert.cpp
-  typewise-alert.tests.cpp
+  alert_handler.cpp
+  alert_to_controller.cpp
+  classify_breach.cpp
+  cooling_limits.cpp
+  email_alert.cpp
+  infer_breach.cpp 
 )
 target_link_libraries(
   cleancode
