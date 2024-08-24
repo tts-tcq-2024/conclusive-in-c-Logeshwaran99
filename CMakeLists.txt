@@ -29,6 +29,7 @@ add_executable(
   breach_classifier_test.cpp
   alert_handler_main_test.cpp
   alert_to_controller_test.cpp
+  email_alert_test.cpp
 )
 target_link_libraries(
   cleancode
