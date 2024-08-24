@@ -25,6 +25,8 @@ add_executable(
   email_alert.cpp
   infer_breach.cpp
   infer_breach_test.cpp
+  cooling_limits_test.cpp
+  breach_classifier_test.cpp
 )
 target_link_libraries(
   cleancode
