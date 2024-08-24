@@ -1,5 +1,5 @@
 #include "alert_handler.h"
-#include "classify_breach.h"
+#include "breach_classifier.h"
 #include "alert_to_controller.h"
 #include "email_alert.h"
 
