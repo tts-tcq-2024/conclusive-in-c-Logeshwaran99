@@ -20,7 +20,7 @@ add_executable(
   cleancode
   alert_handler.cpp
   alert_to_controller.cpp
-  classify_breach.cpp
+  breach_classifier.cpp
   cooling_limits.cpp
   email_alert.cpp
   infer_breach.cpp 
