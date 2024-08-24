@@ -18,7 +18,7 @@ enable_testing()
 add_compile_options("--coverage")
 add_executable(
   cleancode
-  alert_handler.cpp
+  alert_handler_main.cpp
   alert_to_controller.cpp
   breach_classifier.cpp
   cooling_limits.cpp
