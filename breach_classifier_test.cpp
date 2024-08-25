@@ -24,3 +24,12 @@ TEST(TypeWiseAlertTestSuite, ClassifyTemperatureBreach) {
     EXPECT_EQ(classifyTemperatureBreach(HI_ACTIVE_COOLING, 0.0), NORMAL);
     EXPECT_EQ(classifyTemperatureBreach(HI_ACTIVE_COOLING, -5.0), TOO_LOW);
 }
+
+TEST(BreachClassifierTestSuite, ClassifyTemperatureBreachTooHigh) {
+    // Assume that the upper limit for HI_ACTIVE_COOLING is 45°C
+    BatteryCharacter batteryChar = {HI_ACTIVE_COOLING, "BrandY"};
+    // Temperature that exceeds the upper limit of 45°C
+    BreachType breach = classifyTemperatureBreach(HI_ACTIVE_COOLING, 50.0);
+    // Expect breach type to be TOO_HIGH since 50°C > 45°C
+    EXPECT_EQ(breach, TOO_HIGH);
+}
