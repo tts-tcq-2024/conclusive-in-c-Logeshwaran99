@@ -25,6 +25,18 @@ TEST(TypeWiseAlertTestSuite, ClassifyTemperatureBreach) {
     EXPECT_EQ(classifyTemperatureBreach(HI_ACTIVE_COOLING, -5.0), TOO_LOW);
 }
 
+BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
+    int lowerLimit, upperLimit;
+    getCoolingLimits(coolingType, &lowerLimit, &upperLimit);
+
+    printf("Lower Limit: %d, Upper Limit: %d, Temperature: %f\n", lowerLimit, upperLimit, temperatureInC);
+
+    BreachType breach = inferBreach(temperatureInC, lowerLimit, upperLimit);
+    printf("Breach Type: %d\n", breach);
+
+    return breach;
+}
+
 TEST(BreachClassifierTestSuite, ClassifyTemperatureBreachTooHigh) {
     // Assume that the upper limit for HI_ACTIVE_COOLING is 45°C
     BatteryCharacter batteryChar = {HI_ACTIVE_COOLING, "BrandY"};
@@ -32,4 +44,20 @@ TEST(BreachClassifierTestSuite, ClassifyTemperatureBreachTooHigh) {
     BreachType breach = classifyTemperatureBreach(HI_ACTIVE_COOLING, 50.0);
     // Expect breach type to be TOO_HIGH since 50°C > 45°C
     EXPECT_EQ(breach, TOO_HIGH);
+}
+
+TEST(CoolingLimitsTestSuite, VerifyCoolingLimits) {
+    int lowerLimit = 0, upperLimit = 0;
+
+    getCoolingLimits(HI_ACTIVE_COOLING, &lowerLimit, &upperLimit);
+    EXPECT_EQ(lowerLimit, 0);  // Assuming lower limit should be 0
+    EXPECT_EQ(upperLimit, 45); // Assuming upper limit should be 45 for HI_ACTIVE_COOLING
+
+    getCoolingLimits(MED_ACTIVE_COOLING, &lowerLimit, &upperLimit);
+    EXPECT_EQ(lowerLimit, 0);  // Assuming lower limit should be 0
+    EXPECT_EQ(upperLimit, 40); // Assuming upper limit should be 40 for MED_ACTIVE_COOLING
+
+    getCoolingLimits(PASSIVE_COOLING, &lowerLimit, &upperLimit);
+    EXPECT_EQ(lowerLimit, 0);  // Assuming lower limit should be 0
+    EXPECT_EQ(upperLimit, 35); // Assuming upper limit should be 35 for PASSIVE_COOLING
 }
