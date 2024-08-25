@@ -25,18 +25,6 @@ TEST(TypeWiseAlertTestSuite, ClassifyTemperatureBreach) {
     EXPECT_EQ(classifyTemperatureBreach(HI_ACTIVE_COOLING, -5.0), TOO_LOW);
 }
 
-BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
-    int lowerLimit, upperLimit;
-    getCoolingLimits(coolingType, &lowerLimit, &upperLimit);
-
-    printf("Lower Limit: %d, Upper Limit: %d, Temperature: %f\n", lowerLimit, upperLimit, temperatureInC);
-
-    BreachType breach = inferBreach(temperatureInC, lowerLimit, upperLimit);
-    printf("Breach Type: %d\n", breach);
-
-    return breach;
-}
-
 TEST(BreachClassifierTestSuite, ClassifyTemperatureBreachTooHigh) {
     // Assume that the upper limit for HI_ACTIVE_COOLING is 45°C
     BatteryCharacter batteryChar = {HI_ACTIVE_COOLING, "BrandY"};
