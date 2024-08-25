@@ -24,3 +24,8 @@ TEST(TypeWiseAlertTestSuite, InferBreachInvalidLimits) {
     EXPECT_EQ(inferBreach(25.0, 30.0, 20.0), TOO_LOW); // Should be considered too low
     EXPECT_EQ(inferBreach(35.0, 30.0, 20.0), TOO_HIGH); // Should be considered too high
 }
+TEST(BreachClassifierTestSuite, InferBreachTooHigh) {
+    // This will test the second branch where value > upperLimit
+    BreachType breach = inferBreach(50.0, 0.0, 45.0); // 50.0 is greater than upper limit 45.0
+    EXPECT_EQ(breach, TOO_HIGH);  // This should take the second branch
+}
