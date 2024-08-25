@@ -26,3 +26,12 @@ TEST(TypeWiseAlertTestSuite, CheckAndAlertWithVariousTargets) {
     output = testing::internal::GetCapturedStdout();
     EXPECT_EQ(output, "");
 }
+TEST(TypeWiseAlertTestSuite, CheckAndAlertWithInvalidAlertTarget) {
+    BatteryCharacter batteryChar = {PASSIVE_COOLING, "BrandX"};
+
+    // Test with an invalid AlertTarget (e.g., 0, which is not TO_CONTROLLER or TO_EMAIL)
+    testing::internal::CaptureStdout();
+    checkAndAlert((AlertTarget)0, &batteryChar, 25.0); // Cast 0 to AlertTarget enum
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "Error: Invalid alert target\n");
+}
