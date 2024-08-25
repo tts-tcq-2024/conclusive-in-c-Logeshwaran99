@@ -3,8 +3,8 @@
 #include "infer_breach.h"
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
-    int lowerLimit, upperLimit, retVal;
+    int lowerLimit, upperLimit;
     getCoolingLimits(coolingType, &lowerLimit, &upperLimit);
-    retVal =  static inferBreach(temperatureInC, lowerLimit, upperLimit);
+    BreachType retVal =  inferBreach(temperatureInC, lowerLimit, upperLimit);
     return retVal;
 }
