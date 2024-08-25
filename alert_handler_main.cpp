@@ -12,5 +12,8 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
         case TO_EMAIL:
             sendToEmail(breachType);
             break;
+        default:
+            printf("Error: Invalid alert target\n");
+            break;
     }
 }
