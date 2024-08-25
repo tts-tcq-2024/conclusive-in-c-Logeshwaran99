@@ -1,6 +1,6 @@
 #include "infer_breach.h"
 
-static BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
+BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
     if (value < lowerLimit) {
         return TOO_LOW;
     }
