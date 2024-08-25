@@ -2,6 +2,7 @@
 #include "breach_classifier.h"
 #include "alert_to_controller.h"
 #include "email_alert.h"
+#include <cstdio>
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
     BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
